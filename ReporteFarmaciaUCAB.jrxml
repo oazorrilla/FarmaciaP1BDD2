@@ -11,12 +11,8 @@
 	<title>
 		<band height="117" splitType="Stretch">
 			<rectangle>
-				<reportElement x="-20" y="0" width="842" height="111" backcolor="#44C4EB" uuid="df822b69-918d-4153-a786-049c9b957610"/>
+				<reportElement x="-20" y="0" width="842" height="111" backcolor="#C6CCC9" uuid="df822b69-918d-4153-a786-049c9b957610"/>
 			</rectangle>
-			<image>
-				<reportElement x="-11" y="10" width="91" height="102" uuid="d74a9bc3-953c-4205-8840-16ff9eaf84a0"/>
-				<imageExpression><![CDATA["C:/Users/Usuario/Downloads/FarmaciaUcab (1).jpg"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="90" y="20" width="120" height="31" forecolor="#2BB530" uuid="660e70ee-ec0a-491e-8b8f-73955e2d3b01"/>
 				<textElement verticalAlignment="Middle">
@@ -52,6 +48,10 @@
 				</textElement>
 				<text><![CDATA[Reporte]]></text>
 			</staticText>
+			<image>
+				<reportElement x="-11" y="10" width="90" height="90" backcolor="#CBD1D1" uuid="f1a6c0d4-beab-47a7-a43d-6c8b9ee1456b"/>
+				<imageExpression><![CDATA["P1BDD2/FarmaciaUcab (1).jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
@@ -69,12 +69,8 @@
 	<pageFooter>
 		<band height="150" splitType="Stretch">
 			<rectangle>
-				<reportElement x="-20" y="30" width="842" height="120" backcolor="#44C4EB" uuid="1beaad61-21be-484e-9ba6-54d40210e032"/>
+				<reportElement x="-20" y="30" width="842" height="120" backcolor="#C6CCC9" uuid="1beaad61-21be-484e-9ba6-54d40210e032"/>
 			</rectangle>
-			<image>
-				<reportElement x="720" y="39" width="91" height="102" uuid="8c7d7046-bc9b-494d-b5e9-4100c841f1c2"/>
-				<imageExpression><![CDATA["C:/Users/Usuario/Downloads/FarmaciaUcab (1).jpg"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="0" y="50" width="700" height="80" uuid="5cc9b87c-814c-4654-b8d5-f68ab09eba5a"/>
 				<textElement textAlignment="Center">
@@ -82,6 +78,10 @@
 				</textElement>
 				<text><![CDATA[Estamos para servirles con los mejores productos para la salud no dudas en preferirnos]]></text>
 			</staticText>
+			<image>
+				<reportElement x="710" y="50" width="99" height="85" uuid="58c55721-8783-4dda-b155-672200b7a826"/>
+				<imageExpression><![CDATA["P1BDD2/FarmaciaUcab (1).jpg"]]></imageExpression>
+			</image>
 		</band>
 	</pageFooter>
 </jasperReport>
