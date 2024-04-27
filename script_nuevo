@@ -1,0 +1,145 @@
+
+------------------VENTA
+CREATE TABLE IF NOT EXISTS Venta (
+  idVenta SERIAL PRIMARY KEY,
+  FechaVenta DATE NOT NULL,
+  HoraVenta TIME NOT NULL,
+  TotalVenta FLOAT NOT NULL
+);
+
+------------------INVENTARIO
+CREATE TABLE IF NOT EXISTS Inventario (
+  idInventario SERIAL PRIMARY KEY,
+  NombreInventario VARCHAR(50) NOT NULL,
+  CantidadInventario FLOAT NOT NULL,
+  FechaActualizaInventario TIMESTAMP NOT NULL
+);
+
+------------------COSTO
+CREATE TABLE IF NOT EXISTS Costo (
+  idCosto SERIAL PRIMARY KEY,
+  NombreCosto VARCHAR(50) NOT NULL,
+  DescripcionCosto VARCHAR (200) NOT NULL,
+  MontoCosto FLOAT NOT NULL,
+  FechaCosto DATE NOT NULL
+);
+
+------------------IMAGEN
+CREATE TABLE IF NOT EXISTS Imagen (
+    idImagen  SERIAL PRIMARY KEY,
+    NombImagen VARCHAR(50) NOT NULL,
+    ArchivoImagen bytea
+);
+
+------------------PRODUCTO
+CREATE TABLE IF NOT EXISTS Producto (
+  idProducto SERIAL PRIMARY KEY,
+  NombProduct VARCHAR(50) NOT NULL,
+  DescripcionProduct VARCHAR(200) NOT NULL,
+  PrecioProduct FLOAT NOT NULL,
+  StockProduct int NOT NULL,
+  Inventario_idInventario INT NOT NULL,
+  Costo_idCosto INT NOT NULL,
+  fk_imagen int,   --luego de acomodar el problemas de las imagenes hay que cambiarlo a not null
+  FOREIGN KEY (fk_imagen) REFERENCES Imagen(idImagen),
+  FOREIGN KEY (Inventario_idInventario) REFERENCES Inventario(idInventario),
+  FOREIGN KEY (Costo_idCosto) REFERENCES Costo(idCosto)
+);
+
+------------------DETALLE VENTA
+CREATE TABLE IF NOT EXISTS Detalle_Venta (
+  Venta_idVenta INT NOT NULL,
+  Producto_idProducto INT NOT NULL,
+  FOREIGN KEY (Venta_idVenta) REFERENCES Venta(idVenta),
+  FOREIGN KEY (Producto_idProducto) REFERENCES Producto(idProducto)
+);
+
+------------------CATEGORIA
+CREATE TABLE IF NOT EXISTS Categoria (
+  idCategoria SERIAL PRIMARY KEY,
+  NombCategoria VARCHAR(50) NOT NULL,
+  DescripcionCategoria VARCHAR(200) NOT NULL
+);
+
+------------------CATEGORIA_PROD
+CREATE TABLE IF NOT EXISTS CategoriaProd (
+  Categoria_idCategoria INT NOT NULL,
+  Producto_idProducto INT NOT NULL,
+  FOREIGN KEY (Producto_idProducto) REFERENCES Producto(idProducto),
+  FOREIGN KEY (Categoria_idCategoria) REFERENCES Categoria(idCategoria),
+  PRIMARY KEY (Categoria_idCategoria,Producto_idProducto)
+);
+
+------------------CLIENTE
+CREATE TABLE IF NOT EXISTS Cliente (
+  idCliente SERIAL PRIMARY KEY,
+  PrimNombCliente VARCHAR(50) NOT NULL,
+  SegNombCliente VARCHAR(50),
+  PrimApellidoCliente VARCHAR(50) NOT NULL,
+  SegApeliidoCliente VARCHAR(50),
+  CICliente VARCHAR(45),
+  FechaNacCliente DATE NOT NULL,
+  Venta_idVenta INT NOT NULL,
+  fk_imagen int,   --luego de acomodar el problemas de las imagenes hay que cambiarlo a not null
+  FOREIGN KEY (fk_imagen) REFERENCES Imagen(idImagen),
+  FOREIGN KEY (Venta_idVenta) REFERENCES Venta(idVenta)
+);
+
+------------------COMPRA
+CREATE TABLE IF NOT EXISTS Compra (
+  idCompra SERIAL PRIMARY KEY,
+  FechaCompra DATE NOT NULL,
+  MontoTotalCompra FLOAT NOT NULL,
+  MetodoPago VARCHAR(45) NOT NULL,
+  Cliente_idCliente INT NOT NULL,
+  FOREIGN KEY (Cliente_idCliente) REFERENCES Cliente(idCliente)
+);
+
+------------------DETALLE_COMPRA
+CREATE TABLE IF NOT EXISTS DetalleCompra (
+  idDetalleCompra SERIAL PRIMARY KEY,
+  CantidadDetalleCompra INT NOT NULL,
+  PrecioDetalleCompra FLOAT NOT NULL,
+  MontoTotalDetalleCompra FLOAT NOT NULL,
+  Compra_idCompra INT NOT NULL,
+  Producto_idProducto INT NOT NULL,
+  FOREIGN KEY (Compra_idCompra) REFERENCES Compra(idCompra),
+  FOREIGN KEY (Producto_idProducto) REFERENCES Producto(idProducto)
+);
+
+------------------EMPLEADO
+CREATE TABLE IF NOT EXISTS Empleado (
+  idEmpleado SERIAL PRIMARY KEY,
+  PrimNombEmpleado VARCHAR(45) NOT NULL,
+  SegNombEmpleado VARCHAR(45),
+  PrimApellidoEmpleado VARCHAR(45) NOT NULL,
+  CIEmpleado VARCHAR(45) NOT NULL,
+  FechaEmpleado DATE NOT NULL,
+  fk_imagen int,   --luego de acomodar el problemas de las imagenes hay que cambiarlo a not null
+  FOREIGN KEY (fk_imagen) REFERENCES Imagen(idImagen)
+);
+
+----------------LOG DE TURNO
+CREATE TABLE IF NOT EXISTS Turno_Laboral (
+    idTurno             SERIAL PRIMARY KEY,
+    FechaInicio         TIMESTAMP NOT NULL,
+    FechaFin            TIMESTAMP NOT NULL
+);
+
+----------------REGISTRO ASISTENCIA
+CREATE TABLE IF NOT EXISTS RegistroAsistencia (
+    TurnoLaboral_idTurnoLaboral INT NOT NULL,
+    Empleado_idEmpleado         INT NOT NULL,
+    FOREIGN KEY (TurnoLaboral_idTurnoLaboral) REFERENCES Turno_Laboral (idTurno),
+    FOREIGN KEY (Empleado_idEmpleado) REFERENCES Empleado (idEmpleado),
+    PRIMARY KEY (TurnoLaboral_idTurnoLaboral, Empleado_idEmpleado)
+);
+
+---------------------------------------------- Alter table de los check -------------------------------------------------------------------
+ALTER TABLE Compra
+ADD CONSTRAINT CHK_MetodoPago
+CHECK (MetodoPago IN ('Tarjeta de crédito', 'Transferencia bancaria', 'Efectivo'));
+
+ALTER TABLE Producto
+ADD CONSTRAINT CHK_StockProduct
+CHECK (StockProduct >= 0);
