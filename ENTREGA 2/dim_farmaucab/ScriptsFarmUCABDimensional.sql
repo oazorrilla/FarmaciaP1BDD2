@@ -88,7 +88,7 @@ CREATE TABLE dim_farmaucab.FactCompra (
     SK_Producto NUMERIC,
     CantidadUnitaria NUMERIC,
     precio_unitario_prod NUMERIC,
-    PRIMARY KEY (SK_fec_compra, SK_fec_venta),
+    PRIMARY KEY (SK_fec_compra, SK_Producto),
     FOREIGN KEY (SK_fec_compra) REFERENCES dim_farmaucab.DimTiempo(SK_Tiempo),
     FOREIGN KEY (SK_Producto) REFERENCES dim_farmaucab.DimProducto(SK_Producto)
 );
