@@ -173,7 +173,7 @@ INSERT INTO bd_farmaucab.Categoria (NombCategoria, DescripcionCategoria) VALUES
 ('Digestivo', 'Medicamentos con efectos sobre el sistema gastrointestinal.'),
 ('Dolor General', 'Medicamentos para el malestar general.'),
 ('Analgesico y antipiretico', 'Medicamentos diseñados para aliviar el dolor (muscular, de cabeza, articulaciones), o reducir la fiebre.'),
-('Relajante/Dolor Muscular y articular', 'Medicamentos para relajar los músculos y reducir la tensión, la rigidez y el dolor'.),
+('Relajante/Dolor Muscular y articular', 'Medicamentos para relajar los músculos y reducir la tensión, la rigidez y el dolor.'),
 ('Neuroactivadores','Medicamentos que funcionan como activadores cerebrales.'),
 ('Antimigrañosos', 'Medicamentos que alivian el dolor y la inflamación, se usa específicamente para el dolor de cabeza causada por la migraña.'),
 ('Ansiolitico sedante', 'Medicamentos que deprimen o desaceleran determinadas funciones del cuerpo o la actividad de un órgano, como el corazón.');
