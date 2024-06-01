@@ -202,7 +202,7 @@ INSERT INTO bd_farmaucab.Cliente (PrimNombCliente, SegNombCliente, PrimApellidoC
 ('Patricia', NULL, 'Romero', NULL, '24835385', '1995-03-03','Femenino'),
 ('Francisco', NULL, 'Torres', NULL, '26891098', '2000-04-04','Masculino'),
 ('Juan', 'Carlos', 'Pérez', 'Gómez', '27111222', '2000-01-01','Masculino'),                  
-('María', 'Isabel', 'López', 'García', '27333444', '1995-05-05,'Femenino'),             
+('María', 'Isabel', 'López', 'García', '27333444', '1995-05-05','Femenino'),             
 ('Luis', NULL, 'González', 'Pérez','27555666', '1980-10-10','Masculino'),             
 ('Ana', 'María', 'Rodríguez', 'Ortiz', '27777888', '1975-12-12','Femenino'),
 ('Luisa', 'Fernanda', 'Hernández', 'Rodriguez', '27999000', '1965-06-06','Femenino'),
