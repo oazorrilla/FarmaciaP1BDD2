@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS bd_farmaucab.Lugar(
     TipoLugar VARCHAR(50) NOT NULL,
     NombLugar VARCHAR(50) NOT NULL,
     fk_id_lugar integer null,
-    CONSTRAINT fk_id_lugar FOREIGN KEY (fk_id_lugar) REFERENCES lugar(id_lugar)
+    FOREIGN KEY (fk_id_lugar) REFERENCES lugar(idLugar)
 );
 
 ------------------SUCURSAL
