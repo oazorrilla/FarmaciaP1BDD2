@@ -27,21 +27,13 @@ CREATE TABLE IF NOT EXISTS bd_farmaucab.Sucursal(
     CONSTRAINT fk_id_lugar FOREIGN KEY (fk_id_lugar) REFERENCES lugar(idLugar)
 );
 
-------------------IMAGEN
-CREATE TABLE IF NOT EXISTS bd_farmaucab.Imagen (
-    idImagen  SERIAL PRIMARY KEY,
-    NombImagen VARCHAR(50) NOT NULL,
-    ArchivoImagen bytea
-);
 
 ------------------PRODUCTO
 CREATE TABLE IF NOT EXISTS bd_farmaucab.Producto (
   idProducto SERIAL PRIMARY KEY,
   NombProduct VARCHAR(50) NOT NULL,
   DescripcionProduct VARCHAR(200) NOT NULL,
-  PrecioProduct FLOAT NOT NULL,
-  fk_imagen int,   
-  FOREIGN KEY (fk_imagen) REFERENCES Imagen(idImagen)
+  PrecioProduct FLOAT NOT NULL
 );
 
 ------------COMPRA
@@ -107,9 +99,7 @@ CREATE TABLE IF NOT EXISTS bd_farmaucab.Cliente (
   SegApeliidoCliente VARCHAR(50),
   CICliente VARCHAR(45),
   FechaNacCliente DATE NOT NULL,
-  GeneroCliente VARCHAR(20) NOT NULL,
-  fk_imagen int,   
-  FOREIGN KEY (fk_imagen) REFERENCES Imagen(idImagen)
+  GeneroCliente VARCHAR(20) NOT NULL
 );
 
 ------------------VENTA
@@ -158,29 +148,8 @@ INSERT INTO bd_farmaucab.Sucursal (NombSucursal, DirecSucursal, RIFSucursal, fk_
 
 -- Inserciones en la tabla Lugar en otro script
 
--- Inserciones en la tabla Imagen
-INSERT INTO bd_farmaucab.Imagen (NombImagen, ArchivoImagen) VALUES
-('User', pg_read_binary_file('C:\\Users\\PC\\Downloads\\ImagesReports\\User.png')),
-('Acetaminofén', pg_read_binary_file('C:\\Users\\PC\\Downloads\\ImagesReports\\Acetaminofen.jpg')),
-('Apiret', pg_read_binary_file('C:\\Users\\PC\\Downloads\\ImagesReports\\Apiret.jpg')),
-('Atamel', pg_read_binary_file('C:\\Users\\PC\\Downloads\\ImagesReports\\Atamel.jpg')),
-('Atamel Forte', pg_read_binary_file('C:\\Users\\PC\\Downloads\\ImagesReports\\AtamelForte.jpg')),
-('Dencorub', pg_read_binary_file('C:\\Users\\PC\\Downloads\\ImagesReports\\Dencorub.jpg')),
-('Diclofenac', pg_read_binary_file('C:\\Users\\PC\\Downloads\\ImagesReports\\Diclofenac.jpg')),
-('Dol', pg_read_binary_file('C:\\Users\\PC\\Downloads\\ImagesReports\\Dol.jpg')),
-('Femmextra', pg_read_binary_file('C:\\Users\\PC\\Downloads\\ImagesReports\\Femmextra.jpg')),
-('Festal', pg_read_binary_file('C:\\Users\\PC\\Downloads\\ImagesReports\\Festal.jpg')),
-('Hexomedine', pg_read_binary_file('C:\\Users\\PC\\Downloads\\ImagesReports\\Hexomedine.jpg')),
-('Ibuprofeno', pg_read_binary_file('C:\\Users\\PC\\Downloads\\ImagesReports\\Ibuprofeno.jpg')),
-('Liolactil', pg_read_binary_file('C:\\Users\\PC\\Downloads\\ImagesReports\\Liolactil.jpg')),
-('Migren', pg_read_binary_file('C:\\Users\\PC\\Downloads\\ImagesReports\\Migren.jpg')),
-('Teragrip', pg_read_binary_file('C:\\Users\\PC\\Downloads\\ImagesReports\\Teragrip.jpg')),
-('Tiocolchicosido', pg_read_binary_file('C:\\Users\\PC\\Downloads\\ImagesReports\\Tiocolchicosido.jpg')),
-('Usuario femenino',pg_read_binary_file('C:\\Users\\PC\\Downloads\\ImagesReports\\usuario-fem.jpg')),  --17
-('Usuario masculino, pg_read_binary_file('C:\\Users\\PC\\Downloads\\ImagesReports\\usuario-masc.png'));  --18
-
 -- Inserciones en la tabla Producto
-INSERT INTO bd_farmaucab.Producto (NombProduct, DescripcionProduct, PrecioProducto, fk_imagen) VALUES
+INSERT INTO bd_farmaucab.Producto (NombProduct, DescripcionProduct, PrecioProduct) VALUES
 ('Acetaminofen 650mg', 'Analgésico y antipirético. Inhibe la síntesis de prostaglandinas en el SNC y bloquea la generación del impulso doloroso a nivel periférico.', 27.26),
 ('Atamel Forte 650mg', 'Indicado como analgésico y antipirético en enfermedades que se acompañan de dolor y fiebre, como el resfriado común y otras infecciones virales.', 79.95),
 ('Apiret 180mg/5ml', 'Analgésico y antipirético. Bloquea la generación del impulso doloroso a nivel periférico.', 125.87),
@@ -214,30 +183,30 @@ INSERT INTO bd_farmaucab.CategoriaProd (Categoria_idCategoria, Producto_idProduc
 (1,15),(2,14),(3,13),(3,12),(4,11),(5,10),(5,5),(5,1),(6,9),(6,8),(6,7),(7,6),(8,4),(8,2),(9,3);
 
 -- Inserciones en la tabla Cliente
-INSERT INTO bd_farmaucab.Cliente (PrimNombCliente, SegNombCliente, PrimApellidoCliente, SegApeliidoCliente, CICliente, FechaNacCliente, GeneroCliente,fk_imagen) VALUES
-('Luis', 'Alberto', 'Martínez', 'Pérez', '13765432', '1975-05-15','Masculino',18),
-('Ana', NULL, 'González', 'López', '21765432', '1982-08-20','Femenino',17),
-('María', 'Andrea', 'Gil','Flores', '20345678', '1985-01-01','Femenino',17),
-('Juan', 'Diego', 'López', NULL, '23765432', '1990-02-02','Masculino',18),
-('Ana', 'Laura', 'Martínez', NULL, '24654321', '1995-03-03','Femenino',17),
-('Pedro', NULL, 'García', 'Leon','25543210', '2000-04-04','Masculino',18),
-('Carlos', NULL, 'Sánchez', NULL, '30432109', '2005-05-05','Masculino',18),
-('Isabela', NULL, 'Pérez', 'Lara', '34321098', '2010-06-06','Femenino',17),
-('Roberto', 'Antonio', 'Ramírez', NULL, '26210987', '2000-07-07','Masculino',18),
-('Laura', NULL, 'Flores', NULL, '27109876', '2001-08-08','Femenino',17),
-('David', 'Antonio', 'Mendoza', NULL, '28098765', '2001-09-09','Masculino',18),
-('Jennifer', NULL, 'Morales', NULL, '19876543', '1994-10-10','Femenino',17),
-('José', 'Gregorio', 'Silva', NULL, '23876543', '1989-11-11','Masculino',18),
-('Mariana', NULL, 'Blanco', 'Salcedo', '20954321', '1985-01-01','Femenino',17),
-('Andrés', NULL, 'Fernández', 'Garcia','25543210', '1990-02-02','Masculino',18),
-('Patricia', NULL, 'Romero', NULL, '24835385', '1995-03-03','Femenino',17),
-('Francisco', NULL, 'Torres', NULL, '26891098', '2000-04-04','Masculino',18),
-('Juan', 'Carlos', 'Pérez', 'Gómez', '27111222', '2000-01-01','Masculino',18),                  
-('María', 'Isabel', 'López', 'García', '27333444', '1995-05-05,'Femenino',17),             
-('Luis', NULL, 'González', 'Pérez','27555666', '1980-10-10','Masculino',18),             
-('Ana', 'María', 'Rodríguez', 'Ortiz', '27777888', '1975-12-12','Femenino',17),
-('Luisa', 'Fernanda', 'Hernández', 'Rodriguez', '27999000', '1965-06-06','Femenino',17),
-('Elena', 'María', 'Gómez', 'Romero', '27111221', '1960-04-04','Femenino',17);
+INSERT INTO bd_farmaucab.Cliente (PrimNombCliente, SegNombCliente, PrimApellidoCliente, SegApeliidoCliente, CICliente, FechaNacCliente, GeneroCliente) VALUES
+('Luis', 'Alberto', 'Martínez', 'Pérez', '13765432', '1975-05-15','Masculino'),
+('Ana', NULL, 'González', 'López', '21765432', '1982-08-20','Femenino'),
+('María', 'Andrea', 'Gil','Flores', '20345678', '1985-01-01','Femenino'),
+('Juan', 'Diego', 'López', NULL, '23765432', '1990-02-02','Masculino'),
+('Ana', 'Laura', 'Martínez', NULL, '24654321', '1995-03-03','Femenino'),
+('Pedro', NULL, 'García', 'Leon','25543210', '2000-04-04','Masculino'),
+('Carlos', NULL, 'Sánchez', NULL, '30432109', '2005-05-05','Masculino'),
+('Isabela', NULL, 'Pérez', 'Lara', '34321098', '2010-06-06','Femenino'),
+('Roberto', 'Antonio', 'Ramírez', NULL, '26210987', '2000-07-07','Masculino'),
+('Laura', NULL, 'Flores', NULL, '27109876', '2001-08-08','Femenino'),
+('David', 'Antonio', 'Mendoza', NULL, '28098765', '2001-09-09','Masculino'),
+('Jennifer', NULL, 'Morales', NULL, '19876543', '1994-10-10','Femenino'),
+('José', 'Gregorio', 'Silva', NULL, '23876543', '1989-11-11','Masculino'),
+('Mariana', NULL, 'Blanco', 'Salcedo', '20954321', '1985-01-01','Femenino'),
+('Andrés', NULL, 'Fernández', 'Garcia','25543210', '1990-02-02','Masculino'),
+('Patricia', NULL, 'Romero', NULL, '24835385', '1995-03-03','Femenino'),
+('Francisco', NULL, 'Torres', NULL, '26891098', '2000-04-04','Masculino'),
+('Juan', 'Carlos', 'Pérez', 'Gómez', '27111222', '2000-01-01','Masculino'),                  
+('María', 'Isabel', 'López', 'García', '27333444', '1995-05-05,'Femenino'),             
+('Luis', NULL, 'González', 'Pérez','27555666', '1980-10-10','Masculino'),             
+('Ana', 'María', 'Rodríguez', 'Ortiz', '27777888', '1975-12-12','Femenino'),
+('Luisa', 'Fernanda', 'Hernández', 'Rodriguez', '27999000', '1965-06-06','Femenino'),
+('Elena', 'María', 'Gómez', 'Romero', '27111221', '1960-04-04','Femenino');
 
 
 -- Inserciones en la tabla Compra
