@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS bd_farmaucab.Sucursal(
     RIFSucursal    VARCHAR(20) NOT NULL,
     fk_id_lugar	   integer not null,
     constraint check_rif_sucursal check ((RIFSucursal)::text ~ '^([Jj]{1}-[0-9]{10}$)'::text),	
-    CONSTRAINT fk_id_lugar FOREIGN KEY (fk_id_lugar) REFERENCES lugar(id_lugar)
+    CONSTRAINT fk_id_lugar FOREIGN KEY (fk_id_lugar) REFERENCES lugar(idLugar)
 );
 
 ------------------IMAGEN
