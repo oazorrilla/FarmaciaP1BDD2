@@ -106,8 +106,8 @@ CREATE TABLE IF NOT EXISTS bd_farmaucab.Cliente (
 CREATE TABLE IF NOT EXISTS bd_farmaucab.Venta (
   idVenta SERIAL PRIMARY KEY,
   FechaVenta timestamp NOT NULL,
-  MontoTotalVenta FLOAT NOT NULL,
-  MetodoPago VARCHAR(45) NOT NULL,
+  MontoTotalVenta NUMERIC (10,2) NOT NULL,
+  MetodoPago VARCHAR(50) NOT NULL,
   Cliente_idCliente INT NOT NULL,
   fk_id_sucursal integer not null,
   FOREIGN KEY (Cliente_idCliente) REFERENCES bd_farmaucab.Cliente(idCliente),
