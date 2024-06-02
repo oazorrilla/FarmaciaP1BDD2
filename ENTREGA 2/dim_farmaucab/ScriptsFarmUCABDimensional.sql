@@ -36,6 +36,7 @@ CREATE TABLE dim_farmaucab.DimCliente (
 -- Create DimInventario table
 CREATE TABLE dim_farmaucab.DimInventario (
     SK_Inventario NUMERIC PRIMARY KEY,
+    idinventario NUMERIC NOT NULL,
     NombreInventario VARCHAR(100)  NOT NULL,
     CantidadInventario NUMERIC NOT NULL
 );
@@ -44,7 +45,7 @@ CREATE TABLE dim_farmaucab.DimInventario (
 -- Create DimSucursal table
 CREATE TABLE dim_farmaucab.DimSucursal (
     SK_Sucursal NUMERIC PRIMARY KEY,
-    idSucursal NUMERIC NOT NULL,
+    idsucursal NUMERIC NOT NULL,
     NombSucursal VARCHAR(100)  NOT NULL,
     DirecSucursal VARCHAR(100)  NOT NULL,
     RifSucursal VARCHAR(20)  NOT NULL
