@@ -388,10 +388,9 @@ INSERT INTO bd_farmaucab.StockInventario (Inventario_idInventario,Compra_idCompr
 (44,30,14),
 (44,30,15);
 
-
 -- Inserciones en la tabla Venta
 INSERT INTO bd_farmaucab.Venta (FechaVenta, MontoTotalVenta, MetodoPago, Cliente_idCliente, fk_id_sucursal) VALUES
---sucursal 1
+---------------sucursal 1
 ('2024-04-01 15:45:00', 1051.4, 'Tarjeta de crédito', 4,1),
 ('2024-04-01 12:30:00', 481.4, 'Efectivo', 7,1),
 ('2024-04-01 12:00:00', 191.3, 'Efectivo', 10,1),
@@ -418,54 +417,54 @@ INSERT INTO bd_farmaucab.Venta (FechaVenta, MontoTotalVenta, MetodoPago, Cliente
 ('2024-04-19 16:30:00', 480.4, 'Efectivo', 3,1),
 ('2024-04-22 17:30:00', 493.3, 'Tarjeta de crédito', 1,1),
 ('2024-04-22 18:00:00', 211.5, 'Efectivo', 15,1),
-('2024-05-16', 302.0, 'Tarjeta de crédito', 1, 1),   --id 27
-('2024-05-17', 404.5, 'Efectivo', 2, 1),
-('2024-05-18', 1963.5, 'Tarjeta de crédito', 3, 1), 
-('2024-05-19', 752.0, 'Efectivo', 4, 1),
-('2024-06-20', 2820.6, 'Tarjeta de crédito', 5, 1), 
-('2024-06-21', 1532.0, 'Tarjeta de crédito', 6, 1),
-('2024-06-22', 2007.0, 'Efectivo', 7, 1), 
-('2024-04-23', 1409.0, 'Efectivo', 8, 1),
-('2024-04-24', 1202.0, 'Tarjeta de crédito', 9, 1), 
-('2024-04-25', 808.0, 'Tarjeta de crédito', 10, 1),
-('2024-05-26', 6006.0, 'Efectivo', 11, 1), 
-('2024-05-27', 957.0, 'Efectivo', 12, 1),
-('2024-06-28', 4804.0, 'Tarjeta de crédito', 13, 1), 
-('2024-04-29', 158.0, 'Tarjeta de crédito', 14, 1),
-('2024-05-30', 2700.0, 'Efectivo', 15, 1),
---sucursal 2
-('2024-04-16', 302.0, 'Tarjeta de crédito', 1, 2),    --id 42
-('2024-04-17', 404.5, 'Efectivo', 2, 2),
-('2024-04-18', 1963.5, 'Tarjeta de crédito', 3, 2), 
-('2024-04-19', 752.0, 'Efectivo', 4, 2),
-('2024-04-20', 2820.6, 'Tarjeta de crédito', 5, 2), 
-('2024-06-21', 1532.0, 'Tarjeta de crédito', 6, 2),
-('2024-06-22', 2007.0, 'Efectivo', 7, 2), 
-('2024-06-23', 1409.0, 'Efectivo', 8, 2),
-('2024-06-24', 1202.0, 'Tarjeta de crédito', 9, 2), 
-('2024-06-25', 808.0, 'Tarjeta de crédito', 10, 2),
-('2024-05-26', 6006.0, 'Efectivo', 11, 2), 
-('2024-05-27', 957.0, 'Efectivo', 12, 2),
-('2024-05-28', 4804.0, 'Tarjeta de crédito', 13, 2), 
-('2024-05-29', 158.0, 'Tarjeta de crédito', 14, 2),
-('2024-05-30', 2700.0, 'Efectivo', 15, 2),
---sucursal 3
-('2024-05-16', 302.0, 'Tarjeta de crédito', 1, 3),    --id 57
-('2024-05-17', 404.5, 'Efectivo', 2, 3),
-('2024-06-18', 1963.5, 'Tarjeta de crédito', 3, 3), 
-('2024-04-19', 752.0, 'Efectivo', 4, 3),
-('2024-05-20', 2820.6, 'Tarjeta de crédito', 5, 3), 
-('2024-06-21', 1532.0, 'Tarjeta de crédito', 6, 3),
-('2024-04-22', 2007.0, 'Efectivo', 7, 3), 
-('2024-05-23', 1409.0, 'Efectivo', 8, 3),
-('2024-06-24', 1202.0, 'Tarjeta de crédito', 9, 3), 
-('2024-04-25', 808.0, 'Tarjeta de crédito', 10, 3),
-('2024-05-26', 6006.0, 'Efectivo', 11, 3), 
-('2024-06-27', 957.0, 'Efectivo', 12, 3),
-('2024-04-28', 4804.0, 'Tarjeta de crédito', 13, 3), 
-('2024-06-29', 158.0, 'Tarjeta de crédito', 14, 3),
-('2024-05-30', 2700.0, 'Efectivo', 15, 3);
-
+('2024-05-16 17:00:00', 302.0, 'Tarjeta de crédito', 1, 1), 
+('2024-05-17 17:00:00', 404.5, 'Efectivo', 2, 1),
+('2024-05-18 13:00:00', 1963.5, 'Tarjeta de crédito', 3, 1), 
+('2024-05-19 11:00:00', 752.0, 'Efectivo', 4, 1),
+('2024-06-20 14:00:00', 2820.6, 'Tarjeta de crédito', 5, 1), 
+('2024-06-21 14:00:00', 1532.0, 'Tarjeta de crédito', 6, 1),
+('2024-06-22 12:00:00', 2007.0, 'Efectivo', 7, 1), 
+('2024-04-23 15:00:00', 1409.0, 'Efectivo', 8, 1),
+('2024-04-24 18:00:00', 1202.0, 'Tarjeta de crédito', 9, 1), 
+('2024-04-25 14:00:00', 808.0, 'Tarjeta de crédito', 10, 1),
+('2024-05-26 9:00:00', 6006.0, 'Efectivo', 11, 1), 
+('2024-05-27 17:00:00', 957.0, 'Efectivo', 12, 1),
+('2024-06-28 10:00:00', 4804.0, 'Tarjeta de crédito', 13, 1), 
+('2024-04-29 9:00:00', 158.0, 'Tarjeta de crédito', 14, 1),
+('2024-05-30 11:00:00', 2700.0, 'Efectivo', 15, 1),
+-------------sucursal 2
+('2024-04-16 17:00:00', 302.0, 'Tarjeta de crédito', 16, 2), 
+('2024-04-17 10:00:00', 404.5, 'Efectivo', 13, 2),
+('2024-04-18 12:00:00', 1963.5, 'Tarjeta de crédito', 17, 2), 
+('2024-04-19 11:00:00', 752.0, 'Efectivo', 12, 2),
+('2024-04-20 13:00:00', 2820.6, 'Tarjeta de crédito', 18, 2), 
+('2024-06-21 17:00:00', 1532.0, 'Tarjeta de crédito', 11, 2),
+('2024-06-22 14:00:00', 2007.0, 'Efectivo', 19, 2), 
+('2024-06-23 16:00:00', 1409.0, 'Efectivo', 9, 2),
+('2024-06-24 15:00:00', 1202.0, 'Tarjeta de crédito', 20, 2), 
+('2024-06-25 13:00:00', 808.0, 'Tarjeta de crédito', 10, 2),
+('2024-05-26 16:00:00', 6006.0, 'Efectivo', 21, 2), 
+('2024-05-27 12:00:00', 957.0, 'Efectivo', 7, 2),
+('2024-05-28 18:00:00', 4804.0, 'Tarjeta de crédito', 19, 2), 
+('2024-05-29 11:00:00', 158.0, 'Tarjeta de crédito', 14, 2),
+('2024-05-30 9:00:00', 2700.0, 'Efectivo', 10, 2),
+--------------sucursal 3
+('2024-05-16 12:00:00', 302.0, 'Tarjeta de crédito', 10, 3), 
+('2024-05-17 18:00:00', 404.5, 'Efectivo', 9, 3),
+('2024-06-18 13:00:00', 1963.5, 'Tarjeta de crédito', 11, 3), 
+('2024-04-19 14:00:00', 752.0, 'Efectivo', 18, 3),
+('2024-05-20 14:00:00', 2820.6, 'Tarjeta de crédito', 12, 3), 
+('2024-06-21 13:00:00', 1532.0, 'Tarjeta de crédito', 17, 3),
+('2024-04-22 11:00:00', 2007.0, 'Efectivo', 19, 3), 
+('2024-05-23 12:00:00', 1409.0, 'Efectivo', 16, 3),
+('2024-06-24 9:00:00', 1202.0, 'Tarjeta de crédito', 21, 3), 
+('2024-04-25 11:00:00', 808.0, 'Tarjeta de crédito', 14, 3),
+('2024-05-26 10:00:00', 6006.0, 'Efectivo', 1, 3), 
+('2024-06-27 10:00:00', 957.0, 'Efectivo', 13, 3),
+('2024-04-28 8:00:00', 4804.0, 'Tarjeta de crédito', 20, 3), 
+('2024-06-29 17:00:00', 158.0, 'Tarjeta de crédito', 7, 3),
+('2024-05-30 14:00:00', 2700.0, 'Efectivo', 15, 3);
+;
 
 -- Inserciones en la tabla Detalle de venta
 INSERT INTO bd_farmaucab.Detalleventa (CantidadUnitariaDetalleVenta, PrecioDetalleVenta, Venta_idVenta, Inventario_idInventario) VALUES
