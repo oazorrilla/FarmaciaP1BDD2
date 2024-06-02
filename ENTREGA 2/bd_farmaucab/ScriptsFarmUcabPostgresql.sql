@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS bd_farmaucab.Lugar(
     TipoLugar VARCHAR(50) NOT NULL,
     NombLugar VARCHAR(50) NOT NULL,
     fk_id_lugar integer null,
-    FOREIGN KEY (fk_id_lugar) REFERENCES lugar(idLugar)
+    FOREIGN KEY (fk_id_lugar) REFERENCES bd_farmaucab.lugar(idLugar)
 );
 
 ------------------SUCURSAL
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS bd_farmaucab.Sucursal(
     RIFSucursal    VARCHAR(20) NOT NULL,
     fk_id_lugar	   integer not null,
     constraint check_rif_sucursal check ((RIFSucursal)::text ~ '^([Jj]{1}-[0-9]{10}$)'::text),	
-    CONSTRAINT fk_id_lugar FOREIGN KEY (fk_id_lugar) REFERENCES lugar(idLugar)
+    CONSTRAINT fk_id_lugar FOREIGN KEY (fk_id_lugar) REFERENCES bd_farmaucab.lugar(idLugar)
 );
 
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS bd_farmaucab.Compra (
   idCompra SERIAL PRIMARY KEY,
   monto FLOAT NOT NULL,
   fk_id_sucursal integer not null,
-  CONSTRAINT fk_id_sucursal FOREIGN KEY (fk_id_sucursal) REFERENCES sucursal(idSucursal)  
+  CONSTRAINT fk_id_sucursal FOREIGN KEY (fk_id_sucursal) REFERENCES bd_farmaucab.sucursal(idSucursal)  
 );
 
 -----------DETALLE_COMPRA
@@ -51,8 +51,8 @@ CREATE TABLE IF NOT EXISTS bd_farmaucab.DetalleCompra (
   monto FLOAT NOT NULL,
   cantidadUnitaria INT NOT NULL,
   PRIMARY KEY (Compra_idCompra,Producto_idProducto),
-  FOREIGN KEY (Compra_idCompra) REFERENCES Compra(idCompra),
-  FOREIGN KEY (Producto_idProducto) REFERENCES Producto(idProducto)
+  FOREIGN KEY (Compra_idCompra) REFERENCES bd_farmaucab.Compra(idCompra),
+  FOREIGN KEY (Producto_idProducto) REFERENCES bd_farmaucab.Producto(idProducto)
 );
 
 ------------------INVENTARIO
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS bd_farmaucab.Inventario (
   NombreInventario VARCHAR(50) NOT NULL,
   CantidadInventario FLOAT NOT NULL,
   fk_id_sucursal integer not null,
-  FOREIGN KEY (fk_id_sucursal) REFERENCES Sucursal(idSucursal)
+  FOREIGN KEY (fk_id_sucursal) REFERENCES bd_farmaucab.Sucursal(idSucursal)
 );
 
 ------------------STOCK_INVENTARIO
@@ -70,8 +70,8 @@ CREATE TABLE IF NOT EXISTS bd_farmaucab.StockInventario(
   Compra_idCompra INTEGER NOT NULL,
   Producto_idProducto INTEGER NOT NULL,
   PRIMARY KEY (Inventario_idInventario,Compra_idCompra,Producto_idProducto),
-  FOREIGN KEY (Compra_idCompra,Producto_idProducto) REFERENCES DetalleCompra(Compra_idCompra,Producto_idProducto),
-  FOREIGN KEY (Inventario_idInventario) REFERENCES Inventario(IdInventario)
+  FOREIGN KEY (Compra_idCompra,Producto_idProducto) REFERENCES bd_farmaucab.DetalleCompra(Compra_idCompra,Producto_idProducto),
+  FOREIGN KEY (Inventario_idInventario) REFERENCES bd_farmaucab.Inventario(IdInventario)
 );
 
 ------------------CATEGORIA
@@ -85,8 +85,8 @@ CREATE TABLE IF NOT EXISTS bd_farmaucab.Categoria (
 CREATE TABLE IF NOT EXISTS bd_farmaucab.CategoriaProd (
   Categoria_idCategoria INT NOT NULL,
   Producto_idProducto INT NOT NULL,
-  FOREIGN KEY (Producto_idProducto) REFERENCES Producto(idProducto),
-  FOREIGN KEY (Categoria_idCategoria) REFERENCES Categoria(idCategoria),
+  FOREIGN KEY (Producto_idProducto) REFERENCES bd_farmaucab.Producto(idProducto),
+  FOREIGN KEY (Categoria_idCategoria) REFERENCES bd_farmaucab.Categoria(idCategoria),
   PRIMARY KEY (Categoria_idCategoria,Producto_idProducto)
 );
 
@@ -110,8 +110,8 @@ CREATE TABLE IF NOT EXISTS bd_farmaucab.Venta (
   MetodoPago VARCHAR(45) NOT NULL,
   Cliente_idCliente INT NOT NULL,
   fk_id_sucursal integer not null,
-  FOREIGN KEY (Cliente_idCliente) REFERENCES Cliente(idCliente),
-  FOREIGN KEY (fk_id_sucursal) REFERENCES Sucursal(idSucursal)
+  FOREIGN KEY (Cliente_idCliente) REFERENCES bd_farmaucab.Cliente(idCliente),
+  FOREIGN KEY (fk_id_sucursal) REFERENCES bd_farmaucab.Sucursal(idSucursal)
 );
 
 ------------------DETALLE_VENTA
@@ -122,8 +122,8 @@ CREATE TABLE IF NOT EXISTS bd_farmaucab.DetalleVenta (
   Venta_idVenta INT NOT NULL,
   Inventario_idInventario INT NOT NULL,
   PRIMARY KEY (idDetalleVenta,Venta_idVenta),
-  FOREIGN KEY (Venta_idVenta) REFERENCES Venta(idVenta),
-  FOREIGN KEY (Inventario_idInventario) REFERENCES Inventario(idInventario)
+  FOREIGN KEY (Venta_idVenta) REFERENCES bd_farmaucab.Venta(idVenta),
+  FOREIGN KEY (Inventario_idInventario) REFERENCES bd_farmaucab.Inventario(idInventario)
 );
 
 
