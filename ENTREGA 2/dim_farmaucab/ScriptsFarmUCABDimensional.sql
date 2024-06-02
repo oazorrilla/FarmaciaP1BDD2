@@ -12,11 +12,11 @@ SET search_path TO dim_farmaucab;
 CREATE TABLE dim_farmaucab.DimProducto (
     SK_Producto NUMERIC PRIMARY KEY,
     IdProducto NUMERIC NOT NULL,
-    NombProduct VARCHAR(100)  NOT NULL,
-    DescripcionProduct VARCHAR(100)  NOT NULL,
+    NombProduct VARCHAR(200)  NOT NULL,
+    DescripcionProduct VARCHAR(200)  NOT NULL,
     PrecioProduct NUMERIC(10, 2)  NOT NULL,  
     idCategoria NUMERIC NOT NULL,
-    NombCategoria VARCHAR(50) NOT NULL,
+    NombCategoria VARCHAR(200) NOT NULL,
     DescripcionCategoria VARCHAR(200) NOT NULL
 );
 
