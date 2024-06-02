@@ -120,10 +120,10 @@ CREATE TABLE IF NOT EXISTS bd_farmaucab.DetalleVenta (
   CantidadUnitariaDetalleVenta INT NOT NULL,
   PrecioDetalleVenta FLOAT NOT NULL,
   Venta_idVenta INT NOT NULL,
-  Inventario_idInventario INT NOT NULL,
+  Producto_idProducto INT NOT NULL,
   PRIMARY KEY (idDetalleVenta,Venta_idVenta),
   FOREIGN KEY (Venta_idVenta) REFERENCES bd_farmaucab.Venta(idVenta),
-  FOREIGN KEY (Inventario_idInventario) REFERENCES bd_farmaucab.Inventario(idInventario)
+  FOREIGN KEY (Producto_idProducto) REFERENCES bd_farmaucab.Producto(idProducto)
 );
 
 
