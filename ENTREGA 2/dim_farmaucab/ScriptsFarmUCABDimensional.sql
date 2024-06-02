@@ -38,7 +38,8 @@ CREATE TABLE dim_farmaucab.DimInventario (
     SK_Inventario NUMERIC PRIMARY KEY,
     idinventario NUMERIC NOT NULL,
     NombreInventario VARCHAR(100)  NOT NULL,
-    CantidadInventario NUMERIC NOT NULL
+    CantidadInventario NUMERIC NOT NULL,
+    nombsucursal  VARCHAR(100) NOT NULL
 );
 
 
