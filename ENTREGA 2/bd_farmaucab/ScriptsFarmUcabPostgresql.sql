@@ -213,42 +213,43 @@ INSERT INTO bd_farmaucab.Cliente (PrimNombCliente, SegNombCliente, PrimApellidoC
 
 
 -- Inserciones en la tabla Compra
-INSERT INTO bd_farmaucab.Compra (monto,fk_id_sucursal) VALUES
+INSERT INTO bd_farmaucab.Compra (monto, fecha_compra, fk_id_sucursal) VALUES
 --sucursal 1
-(22349.1,1),
-(31528.5,1),
-(31484.6,1),
-(87656.5,1),
-(52045,1),
-(105372,1),
-(24124.5,1),
-(41604.5,1),
-(12765.1,1),
-(54040,1),
-(20995.3,1),
-(6550,1),
-(47502.5,1),
-(55726.4,1),
-(120560,1),
+(22349.1, '2024-01-08 8:00:00', 1),
+(31528.5,'2024-01-08 8:00:00', 1),
+(31484.6,'2024-01-08 8:00:00', 1),
+(87656.5,'2024-01-08 8:00:00',1),
+(52045,'2024-01-08 8:00:00',1),
+(105372,'2024-01-09 12:00:00',1),
+(24124.5,'2024-01-09 12:00:00',1),
+(41604.5,'2024-01-09 12:00:00',1),
+(12765.1,'2024-01-09 12:00:00',1),
+(54040,'2024-01-09 12:00:00',1),
+(20995.3,'2024-01-10 9:00:00',1),
+(6550,'2024-01-10 9:00:00',1),
+(47502.5,'2024-01-10 9:00:00',1),
+(55726.4,'2024-01-10 9:00:00',1),
+(120560,'2024-01-10 9:00:00',1),
 --sucursal 2
-(23276,2),
-(33183,2),
-(51986,2),
-(24300,2),
-(33180,2),
-(28150,2),
-(22607,2),
-(14100,2),
-(38565,2),
-(9514.5,2),
+(23276,'2024-01-08 8:00:00',2),
+(33183,'2024-01-08 8:00:00',2),
+(51986,'2024-01-08 8:00:00',2),
+(24300,'2024-01-08 8:00:00',2),
+(33180,'2024-01-08 8:00:00',2),
+(28150,'2024-01-09 12:00:00',2),
+(22607,'2024-01-09 12:00:00',2),
+(14100,'2024-01-09 12:00:00',2),
+(38565,'2024-01-09 12:00:00',2),
+(9514.5,'2024-01-09 12:00:00',2),
 --sucursal 3
-(5155,3),
-(10263,3),
-(6530,3),
-(10941,3),
-(29677.5,3),
-(33727.5,3),
-(9045,3);
+(5155,'2024-01-08 8:00:00',3),
+(10263,'2024-01-08 8:00:00',3),
+(6530,'2024-01-08 8:00:00',3),
+(10941,'2024-01-11 9:00:00',3),
+(29677.5,'2024-01-11 9:00:00',3),
+(33727.5,'2024-01-11 9:00:00',3),
+(9045,'2024-01-11 9:00:00',3);
+
 
 -- Inserciones en la tabla DetalleCompra
 INSERT INTO bd_farmaucab.DetalleCompra (Compra_idCompra, Producto_idProducto, monto, cantidadUnitaria) VALUES
@@ -287,58 +288,10 @@ INSERT INTO bd_farmaucab.DetalleCompra (Compra_idCompra, Producto_idProducto, mo
 (30,3,3272.5,25), (30,12,12012,20), (30,13,4785,15), (30,14,9608,40), (30,15,4050,15),
 (31,7,2000,20), (31,9,7045,50);
 
---Inserciones en la tabla Inventario
 INSERT INTO bd_farmaucab.Inventario (NombreInventario, CantidadInventario, fk_id_sucursal) VALUES
---sucursal 1
-('Acetaminofen 650mg', 200,1),
-('Atamel Forte 650mg', 300,1),
-('Apiret 180mg/5ml', 150,1),
-('Migren', 200,1),
-('Diclofenac Potasico 50mg', 500,1),
-('Dol Plus', 300,1),
-('Dencorub 40mg', 180,1),
-('Femmex ultra 200/10mg', 400,1),
-('Tiocolchicosido Calox 4mg', 450,1),
-('Atamel 500mg', 200,1),
-('Ibuprofeno 400mg', 700,1),
-('Festal', 300,1),
-('Liolactil 250mg', 150,1),
-('Teragrip Forte 24h', 350,1),
-('Hexomedine Colutorio Aerosol 30g', 180,1),
---sucursal 2
---16
-('Acetaminofen 650mg', 50, 2),
-('Atamel Forte 650mg', 215, 2),
-('Apiret 180mg/5ml', 70, 2),
-('Migren', 80, 2),
-('Diclofenac Potasico 50mg', 320, 2),
-('Dol Plus', 150, 2),
-('Dencorub 40mg', 50, 2),
-('Femmex ultra 200/10mg', 250, 2),
-('Tiocolchicosido Calox 4mg', 200, 2),
-('Atamel 500mg', 80, 2),
-('Ibuprofeno 400mg', 170, 2),
-('Festal', 60, 2),
-('Liolactil 250mg', 50, 2),
-('Teragrip Forte 24h', 100, 2),
-('Hexomedine Colutorio Aerosol 30g', 90, 2),
---sucursal 3
---31
-('Acetaminofen 650mg', 30, 3),
-('Atamel Forte 650mg', 60, 3),
-('Apiret 180mg/5ml', 25, 3),
-('Migren', 30, 3),
-('Diclofenac Potasico 50mg', 30, 3),
-('Dol Plus', 20, 3),
-('Dencorub 40mg', 20, 3),
-('Femmex ultra 200/10mg', 50, 3),
-('Tiocolchicosido Calox 4mg', 50, 3),
-('Atamel 500mg', 45, 3),
-('Ibuprofeno 400mg', 50, 3),
-('Festal', 20, 3),
-('Liolactil 250mg', 15, 3),
-('Teragrip Forte 24h', 40, 3),
-('Hexomedine Colutorio Aerosol 30g', 15, 3);
+('Inventario de FarmaUcab Santa Paula', 4560,1),
+('Inventario de FarmaUcab Colinas de Tamanaco', 1935,2),
+('Inventario de FarmaUcab Chacao', 500,3);
 
 --Inserciones en la tabla StockInventario
 INSERT INTO bd_farmaucab.StockInventario (Inventario_idInventario,Compra_idCompra,Producto_idProducto) VALUES
