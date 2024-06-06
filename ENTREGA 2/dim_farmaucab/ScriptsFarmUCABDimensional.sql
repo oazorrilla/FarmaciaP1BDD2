@@ -49,7 +49,9 @@ CREATE TABLE dim_farmaucab.DimSucursal (
     idsucursal NUMERIC NOT NULL,
     NombSucursal VARCHAR(100)  NOT NULL,
     DirecSucursal VARCHAR(100)  NOT NULL,
-    RifSucursal VARCHAR(20)  NOT NULL
+    RifSucursal VARCHAR(20)  NOT NULL,
+    FK_SK_inv NUMERIC NOT NULL,
+    FOREIGN KEY (FK_SK_inv) references dim_farmaucab.DimInventario (SK_Inventario)
 );
 
 -- Create DimTiempo table
@@ -71,6 +73,7 @@ CREATE TABLE dim_farmaucab.DimTiempo (
 
 -- Create FactVenta table
 CREATE TABLE dim_farmaucab.FactVenta (
+    id_fact_venta NUMERIC PRIMARY KEY,
     SK_Producto NUMERIC,
     SK_Cliente NUMERIC,
     SK_Sucursal NUMERIC,
@@ -79,7 +82,6 @@ CREATE TABLE dim_farmaucab.FactVenta (
     MetodoDePago VARCHAR(50),
     cantidad_unitaria_prod  NUMERIC,
     precio_unitario_prod NUMERIC,
-    PRIMARY KEY (SK_Producto,SK_Cliente,SK_Sucursal,SK_fec_venta),
     FOREIGN KEY (SK_Producto) REFERENCES dim_farmaucab.DimProducto(SK_Producto),
     FOREIGN KEY (SK_Cliente) REFERENCES dim_farmaucab.DimCliente(SK_Cliente),
     FOREIGN KEY (SK_Sucursal) REFERENCES dim_farmaucab.DimSucursal(SK_Sucursal),
@@ -88,12 +90,14 @@ CREATE TABLE dim_farmaucab.FactVenta (
 
 -- Create FactCompra table
 CREATE TABLE dim_farmaucab.FactCompra (
+    id_fact_compra NUMERIC NOT NULL,
     SK_Producto NUMERIC,
     SK_Inventario NUMERIC,
+    SK_fec_compra NUMERIC,
     CantidadUnitaria NUMERIC,
     precio_unitario_prod NUMERIC,
     monto NUMERIC(10, 2),
-    PRIMARY KEY (SK_Producto,SK_Inventario),
     FOREIGN KEY (SK_Producto) REFERENCES dim_farmaucab.DimProducto(SK_Producto),
-    FOREIGN KEY (SK_Inventario) REFERENCES dim_farmaucab.DimInventario(SK_Inventario)
+    FOREIGN KEY (SK_Inventario) REFERENCES dim_farmaucab.DimInventario(SK_Inventario),
+    FOREIGN KEY (SK_fec_compra) REFERENCES dim_farmaucab.DimTiempo(SK_Tiempo)
 );
