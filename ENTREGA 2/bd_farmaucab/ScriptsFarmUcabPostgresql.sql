@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS bd_farmaucab.Producto (
 CREATE TABLE IF NOT EXISTS bd_farmaucab.Compra (
   idCompra SERIAL PRIMARY KEY,
   monto FLOAT NOT NULL,
+  fecha_compra timestamp NOT NULL,
   fk_id_sucursal integer not null,
   CONSTRAINT fk_id_sucursal FOREIGN KEY (fk_id_sucursal) REFERENCES bd_farmaucab.sucursal(idSucursal)  
 );
@@ -120,10 +121,12 @@ CREATE TABLE IF NOT EXISTS bd_farmaucab.DetalleVenta (
   CantidadUnitariaDetalleVenta INT NOT NULL,
   PrecioDetalleVenta FLOAT NOT NULL,
   Venta_idVenta INT NOT NULL,
-  Producto_idProducto INT NOT NULL,
+  fk_stock_prod INT NOT NULL,
+  fk_stock_compra INT NOT NULL,
+  fk_stock_inv INT NOT NULL,
   PRIMARY KEY (idDetalleVenta,Venta_idVenta),
   FOREIGN KEY (Venta_idVenta) REFERENCES bd_farmaucab.Venta(idVenta),
-  FOREIGN KEY (Producto_idProducto) REFERENCES bd_farmaucab.Producto(idProducto)
+  constraint fk_stock FOREIGN KEY (fk_stock_inv, fk_stock_compra, fk_stock_prod) REFERENCES bd_farmaucab.stockinventario(inventario_idinventario, compra_idcompra, producto_idproducto)
 );
 
 
