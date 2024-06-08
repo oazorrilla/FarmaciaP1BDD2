@@ -66,7 +66,7 @@ CREATE TABLE dim_farmaucab.DimTiempo (
 
 -- Create FactVenta table
 CREATE TABLE dim_farmaucab.FactVenta (
-    id_fact_venta NUMERIC PRIMARY KEY,
+    id_fact_venta SERIAL PRIMARY KEY,
     SK_Producto NUMERIC,
     SK_Cliente NUMERIC,
     SK_Sucursal NUMERIC,
@@ -83,7 +83,7 @@ CREATE TABLE dim_farmaucab.FactVenta (
 
 -- Create FactCompra table
 CREATE TABLE dim_farmaucab.FactCompra (
-    id_fact_compra NUMERIC NOT NULL,
+    id_fact_compra SERIAL NOT NULL,
     SK_Producto NUMERIC,
     SK_Sucursal NUMERIC,
     SK_fec_compra NUMERIC,
