@@ -61,7 +61,7 @@ CREATE TABLE dim_farmaucab.DimTiempo (
     cod_dia_mes NUMERIC NOT NULL,
     cod_dia_semana NUMERIC NOT NULL,
     desc_dia_semana VARCHAR(100) NOT NULL,
-    fecha timestamp NOT NULL
+    fecha date NOT NULL
 );
 
 -- Create FactVenta table
