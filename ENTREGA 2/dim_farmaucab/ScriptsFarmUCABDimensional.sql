@@ -33,14 +33,6 @@ CREATE TABLE dim_farmaucab.DimCliente (
     GeneroCliente VARCHAR(20) NOT NULL    
 );
 
--- Create DimInventario table
-CREATE TABLE dim_farmaucab.DimInventario (
-    SK_Inventario NUMERIC PRIMARY KEY,
-    idinventario NUMERIC NOT NULL,
-    NombreInventario VARCHAR(100)  NOT NULL,
-    CantidadInventario NUMERIC NOT NULL,
-    nombsucursal  VARCHAR(100) NOT NULL
-);
 
 
 -- Create DimSucursal table
@@ -49,9 +41,7 @@ CREATE TABLE dim_farmaucab.DimSucursal (
     idsucursal NUMERIC NOT NULL,
     NombSucursal VARCHAR(100)  NOT NULL,
     DirecSucursal VARCHAR(100)  NOT NULL,
-    RifSucursal VARCHAR(20)  NOT NULL,
-    FK_SK_inv NUMERIC NOT NULL,
-    FOREIGN KEY (FK_SK_inv) references dim_farmaucab.DimInventario (SK_Inventario)
+    RifSucursal VARCHAR(20)  NOT NULL
 );
 
 -- Create DimTiempo table
@@ -92,12 +82,12 @@ CREATE TABLE dim_farmaucab.FactVenta (
 CREATE TABLE dim_farmaucab.FactCompra (
     id_fact_compra NUMERIC NOT NULL,
     SK_Producto NUMERIC,
-    SK_Inventario NUMERIC,
+    SK_Sucursal NUMERIC,
     SK_fec_compra NUMERIC,
     CantidadUnitaria NUMERIC,
     precio_unitario_prod NUMERIC,
     monto NUMERIC(10, 2),
     FOREIGN KEY (SK_Producto) REFERENCES dim_farmaucab.DimProducto(SK_Producto),
-    FOREIGN KEY (SK_Inventario) REFERENCES dim_farmaucab.DimInventario(SK_Inventario),
+    FOREIGN KEY (SK_Sucursal) REFERENCES dim_farmaucab.DimSucursal(SK_Sucursal),
     FOREIGN KEY (SK_fec_compra) REFERENCES dim_farmaucab.DimTiempo(SK_Tiempo)
 );
