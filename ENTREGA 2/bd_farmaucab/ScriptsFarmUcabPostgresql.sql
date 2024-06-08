@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS bd_farmaucab.DetalleCompra (
 CREATE TABLE IF NOT EXISTS bd_farmaucab.Inventario (
   idInventario SERIAL PRIMARY KEY,
   NombreInventario VARCHAR(50) NOT NULL,
-  CantidadInventario FLOAT NOT NULL,
+  CantidadInventario NUMERIC NOT NULL,
   fk_id_sucursal integer not null,
   FOREIGN KEY (fk_id_sucursal) REFERENCES bd_farmaucab.Sucursal(idSucursal)
 );
