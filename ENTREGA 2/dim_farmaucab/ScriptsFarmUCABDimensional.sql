@@ -41,7 +41,10 @@ CREATE TABLE dim_farmaucab.DimSucursal (
     idsucursal NUMERIC NOT NULL,
     NombSucursal VARCHAR(100)  NOT NULL,
     DirecSucursal VARCHAR(100)  NOT NULL,
-    RifSucursal VARCHAR(20)  NOT NULL
+    RifSucursal VARCHAR(20)  NOT NULL,
+    idinventario NUMERIC NOT NULL,
+    nombreinventario VARCHAR(50) NOT NULL,
+    cantidadinventario NUMERIC NOT NULL
 );
 
 -- Create DimTiempo table
