@@ -420,7 +420,7 @@ INSERT INTO bd_farmaucab.Venta (FechaVenta, MontoTotalVenta, MetodoPago, Cliente
 ('2024-06-27', 957.0, 'Efectivo', 13, 3),
 ('2024-04-28', 4804.0, 'Tarjeta de crédito', 20, 3), 
 ('2024-06-29', 158.0, 'Tarjeta de crédito', 7, 3),
-('2024-05-30', 2700.0, 'Efectivo', 15, 3)
+('2024-05-30', 2700.0, 'Efectivo', 15, 3),
 ------sucursal 1
     -- Venta 72 con 2 detalles
     ('2024-05-02', (3 * 27.26) + (6 * 125.87), 'Tarjeta de crédito', 1, 1),
