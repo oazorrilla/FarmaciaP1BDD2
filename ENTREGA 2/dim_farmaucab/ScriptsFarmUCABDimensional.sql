@@ -24,9 +24,9 @@ CREATE TABLE dim_farmaucab.DimProducto (
 CREATE TABLE dim_farmaucab.DimCliente (
     SK_Cliente NUMERIC PRIMARY KEY,
     IdCliente NUMERIC NOT NULL,
-    NombCliente VARCHAR(100)  NOT NULL,
+    primNombCliente VARCHAR(100)  NOT NULL,
     SegNombCliente VARCHAR(50),
-    ApellidoCliente VARCHAR(100)  NOT NULL,
+    primApellidoCliente VARCHAR(100)  NOT NULL,
     SegApeliidoCliente VARCHAR(50),
     CICliente VARCHAR(45) NOT NULL,
     FechaNacCliente DATE NOT NULL,
